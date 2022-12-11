@@ -47,7 +47,13 @@ class MyHomePage extends StatelessWidget {
         children: <Widget>[
           Container(
             //width: double.infinity,
-            child: Card(),
+            child: Column(
+              children: _transactions.map((tr) {
+                return Card(
+                  child: Text(tr.title),
+                );
+              }).toList(),
+            ),
           )
         ],
       ),
