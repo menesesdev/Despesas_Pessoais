@@ -1,6 +1,7 @@
 import 'package:despesas_pessoais/models/transaction.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:intl/intl.dart';
 
 import 'package:flutter/material.dart';
 
@@ -84,7 +85,7 @@ class MyHomePage extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            tr.date.toString(),
+                            DateFormat('d MMM y').format(tr.date),
                             style: TextStyle(
                               color: Colors.grey,
                             ),
