@@ -43,7 +43,7 @@ class MyHomePage extends StatelessWidget {
         title: Text('Despesas'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        //mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Container(
@@ -66,7 +66,7 @@ class MyHomePage extends StatelessWidget {
                         ),
                         padding: EdgeInsets.all(10),
                         child: Text(
-                         'R\$ ' + tr.value.toStringAsFixed(2),
+                          'R\$ ' + tr.value.toStringAsFixed(2),
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 15,
@@ -97,7 +97,43 @@ class MyHomePage extends StatelessWidget {
                 );
               }).toList(),
             ),
-          )
+          ),
+          Card(
+            elevation: 5,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: <Widget>[
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Título',
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        labelText: 'Valor - R\$',
+                      ),
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      TextButton(
+                        style: TextButton.styleFrom(
+                          backgroundColor: Colors.purple,
+                          primary: Colors.white,
+                        ),
+                        onPressed: () {},
+                        child: Text('Adicionar'),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
