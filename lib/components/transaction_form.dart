@@ -8,6 +8,10 @@ class TransactionForm extends StatelessWidget {
   final titleController = TextEditingController();
   final valueController = TextEditingController();
 
+  final void Function(String, double) onSubmit;
+
+  TransactionForm(this.onSubmit);
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -40,8 +44,9 @@ class TransactionForm extends StatelessWidget {
                     primary: Colors.white,
                   ),
                   onPressed: () {
-                    print(titleController.text);
-                    print(valueController);
+                   final title = titleController.text;
+                   final value = double.tryParse(valueController.text) ?? 0.0;
+                   onSubmit(title, value);
                   },
                   child: Text('Adicionar'),
                 ),
