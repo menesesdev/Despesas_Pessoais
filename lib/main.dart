@@ -5,6 +5,7 @@ import 'components/transaction_form.dart';
 import 'components/transaction_list.dart';
 import 'models/transaction.dart';
 import 'dart:math';
+import 'components/chart.dart';
 
 main() => runApp(ExpensesApp());
 
@@ -18,8 +19,8 @@ class ExpensesApp extends StatelessWidget {
       home: MyHomePage(),
       theme: ThemeData(
         primarySwatch: Colors.purple,
-       //accentColor: Colors.black87,
-       fontFamily: 'Roboto',
+        //accentColor: Colors.black87,
+        fontFamily: 'Roboto',
       ),
     );
   }
@@ -31,7 +32,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List <Transaction> _transactions = [
+  final List<Transaction> _transactions = [
     // Transaction(
     //   id: 't1',
     //   title: 'Novo Tênis',
@@ -45,6 +46,14 @@ class _MyHomePageState extends State<MyHomePage> {
     //   date: DateTime.now(),
     // ),
   ];
+
+  List<Transaction> get _recentTransactions {
+    return _transactions.where((tr) {
+      return tr.date.isAfter(DateTime.now().subtract(
+        Duration(days: 7),
+      ));
+    }).toList();
+  }
 
   _addTransaction(String title, double value) {
     final newTransaction = Transaction(
@@ -87,16 +96,14 @@ class _MyHomePageState extends State<MyHomePage> {
           //mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Container(
-                //width: double.infinity,
-                //child:
-                ),
+            Chart(_recentTransactions),
             TransactionList(_transactions),
           ],
         ),
       ),
-      floatingActionButton:
-          FloatingActionButton(child: Icon(Icons.add), onPressed: () => _openTransactionFormModal(context)),
+      floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () => _openTransactionFormModal(context)),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterFloat,
     );
