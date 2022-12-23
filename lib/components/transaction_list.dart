@@ -21,26 +21,37 @@ class TransactionList extends StatelessWidget {
         itemCount: transactions.length,
         itemBuilder: (ctx, index) {
           final tr = transactions[index];
-          return ListTile(
-            leading: CircleAvatar(
-              radius: 30,
-              child: Padding(
-                padding: const EdgeInsets.all(9.0),
-                child: FittedBox(
-                  child: Text('R\$ ${tr.value}'),
+          return Card(
+            margin: EdgeInsets.symmetric(
+              horizontal: 6,
+              vertical: 5,
+            ),
+            child: ListTile(
+              leading: CircleAvatar(
+                radius: 30,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: FittedBox(
+                    child: Column(
+                      children: [
+                        Text('${tr.value}'),
+                        
+                      ],
+                    ),
+                  ),
                 ),
               ),
-            ),
-            title: Text(
-              tr.title,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
+              title: Text(
+                tr.title,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            subtitle: Text(
-              DateFormat('d MMM y').format(tr.date),
-              style: TextStyle(
-                fontSize: 12,
+              subtitle: Text(
+                DateFormat('d MMM y').format(tr.date),
+                style: TextStyle(
+                  fontSize: 12,
+                ),
               ),
             ),
           );

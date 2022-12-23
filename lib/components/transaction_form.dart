@@ -20,11 +20,20 @@ class _TransactionFormState extends State<TransactionForm> {
   _submitForm() {
     final title = titleController.text;
     final value = double.tryParse(valueController.text) ?? 0.0;
-    
+
     if (title.isEmpty || value <= 0) {
       return;
     }
     widget.onSubmit(title, value);
+  }
+
+  _showDatePicker() {
+    showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2022),
+      lastDate: DateTime.now(),
+    );
   }
 
   @override
@@ -51,6 +60,18 @@ class _TransactionFormState extends State<TransactionForm> {
                 decoration: InputDecoration(
                   labelText: 'Valor - R\$',
                 ),
+              ),
+            ),
+            Container(
+              height: 40,
+              child: Row(
+                children: <Widget>[
+                  //Text('Nenhuma data selecionada!'),
+                  TextButton(
+                    onPressed: _showDatePicker,
+                    child: Text('Data'),
+                  ),
+                ],
               ),
             ),
             Row(
