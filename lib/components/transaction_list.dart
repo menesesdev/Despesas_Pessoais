@@ -10,8 +10,9 @@ class TransactionList extends StatelessWidget {
   //const TransactionList({super.key});
 
   final List<Transaction> transactions;
+  final void Function(String) onRemove;
 
-  TransactionList(this.transactions);
+  TransactionList(this.transactions, this.onRemove);
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,6 @@ class TransactionList extends StatelessWidget {
                     child: Column(
                       children: [
                         Text('${tr.value}'),
-                        
                       ],
                     ),
                   ),
@@ -52,6 +52,11 @@ class TransactionList extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 12,
                 ),
+              ),
+              trailing: IconButton(
+                onPressed: () => onRemove(tr.id),
+                color: Colors.red[500],
+                icon: Icon(Icons.delete),
               ),
             ),
           );
