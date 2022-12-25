@@ -1,16 +1,10 @@
-# despesas_pessoais
+# Despesas
 
-A new Flutter project.
+Um aplicativo que registra despesas que são feitas ao longo da semana, com a possibilidade de adicionar despesas em dias diferentes do dia atual e também deletá-las caso seja necessário.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+# Vídeo Demonstrativo
 
-A few resources to get you started if this is your first Flutter project:
+https://user-images.githubusercontent.com/109961465/209477477-c3fab0e2-61ab-4c06-8ce6-62a69211b45a.mp4
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+_créditos: canal COD3R cursos._
