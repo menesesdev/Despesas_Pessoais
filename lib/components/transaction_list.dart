@@ -31,8 +31,14 @@ class TransactionList extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: FittedBox(
-                  child: Column(
+                  child: Row(
                     children: [
+                      // Text(
+                      //   'R\$ ',
+                      //   style: TextStyle(
+                      //     fontSize: 10,
+                      //   ),
+                      // ),
                       Text('${tr.value}'),
                     ],
                   ),
