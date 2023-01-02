@@ -103,8 +103,12 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       actions: <Widget>[
         IconButton(
-          icon: Icon(Icons.add),
-          onPressed: () => _openTransactionFormModal(context),
+          icon: Icon(_showChart ? Icons.list : Icons.align_vertical_bottom_rounded),
+          onPressed: (){
+            setState(() {
+              _showChart = !_showChart;
+            });
+          },
         )
       ],
     );
@@ -123,16 +127,16 @@ class _MyHomePageState extends State<MyHomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text('Lista'),
-                Switch(
-                  value: _showChart,
-                  onChanged: (value) {
-                    setState(() {
-                      _showChart = value;
-                    });
-                  },
-                ),
-                Text('Gráfico'),
+                //Text('Lista '),
+                // Switch(
+                //   value: _showChart,
+                //   onChanged: (value) {
+                //     setState(() {
+                //       _showChart = value;
+                //     });
+                //   },
+                // ),
+                //Text('Gráfico'),
               ],
             ),
             _showChart ?
